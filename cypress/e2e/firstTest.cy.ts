@@ -1,10 +1,10 @@
 describe('Read Article Modal', () => {
   it('visits the website', () => {
-    cy.visit('http://192.168.89.218:5173/');
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/');
   });
 
   it('navigates to an article and opens the modal', () => {
-    cy.visit('http://192.168.89.218:5173/account/sport/News/74'); // Use the correct article ID
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/News/74'); // Use the correct article ID
 
     // Wait for the modal to appear
     
@@ -12,14 +12,14 @@ describe('Read Article Modal', () => {
 
 
   it('checks if the modal content is displayed correctly', () => {
-    cy.visit('http://192.168.89.218:5173/account/sport/News/74'); // Replace '1' with a valid article ID
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/News/74'); // Replace '1' with a valid article ID
    
     cy.get('h2').should('contain.text', 'Table Tennis'); // Replace with actual sport name
     cy.get('h3').should('contain.text', 'Excitement and Drama in Unforgettable Match'); // Replace with actual article title
    // Replace with actual article content
   });
   it('checks the text-to-speech functionality', () => {
-    cy.visit('http://192.168.89.218:5173/account/sport/News/74'); // Replace '1' with a valid article ID
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/News/74'); // Replace '1' with a valid article ID
 
     // Ensure the modal and buttons are visible
   
@@ -38,7 +38,7 @@ describe('Read Article Modal', () => {
   });
 
   it('closes the modal', () => {
-    cy.visit('http://192.168.89.218:5173/account/sport/News/74');
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/News/74');
   
     // Wait for the close button to be visible and clickable
     cy.get('button[type="button"]').click({ force: true, multiple: true });
