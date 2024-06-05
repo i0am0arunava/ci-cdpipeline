@@ -47,10 +47,11 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         with:
            status: ${{ job.status }}
-           mention: "here"
-           author_name: "GitHub Actions"
+           channel: '#general'
+           message: starting..
         env:
            SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
+        if: always()
 
   deploy:
     name: Deploy
