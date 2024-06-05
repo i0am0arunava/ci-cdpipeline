@@ -69,14 +69,22 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ always() }}
     steps:
-       - name: Send Slack notification
-         uses: rtCamp/action-slack-notify@v2
-         with:
-           status: ${{ job.status }}
-           mention: "here"
-           author_name: "GitHub Actions"
-         env:
-           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
+      - name: Checkout repo (for context)
+        uses: actions/checkout@v2
+
+      - name: Get build logs
+        id: build-logs
+        run: cat ${{ github.workspace }}/path-to-your-build-log-file.log || echo "No build log found"
+
+      - name: Send Slack notification
+        uses: rtCamp/action-slack-notify@v2
+        with:
+          status: ${{ job.status }}
+          mention: "here"
+          author_name: "GitHub Actions"
+          text: ${{ steps.build-logs.outputs.build-log }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_URI }}
 
 
       
