@@ -35,7 +35,7 @@ jobs:
         run: npm run build
         env:
           VITE_API_ENDPOINT: ${{ secrets.VITE_API_ENDPOINT }}
-          SLACK_WEBHOOK:  ${{ secrets.SLACK_URI }}
+          slack-webhook:  ${{ secrets.SLACK_URI }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
@@ -46,9 +46,9 @@ jobs:
       - name: Send Slack notification
         uses: rtCamp/action-slack-notify@v2
         with:
-           status: ${{ job.status }}
-           channel: '#general'
-           message: starting..
+           slack-webhook: ${{ secrets.SLACK_URI }}
+           slack-channel: '#general'
+           slack-message: 'starting..'
         env:
            SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
         if: always()
