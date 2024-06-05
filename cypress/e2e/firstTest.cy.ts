@@ -1,6 +1,6 @@
 describe('Read Article Modal', () => {
   it('visits the website', () => {
-    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/spor/');
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/');
   });
 
   it('navigates to an article and opens the modal', () => {
@@ -27,7 +27,7 @@ describe('Read Article Modal', () => {
 
     // Verify speech synthesis is speaking
     cy.window().then((win) => {
-      expect(win.speechSynthesis.speaking).to.be.false; // Check if speechSynthesis is speaking
+      expect(win.speechSynthesis.speaking).to.be.true; // Check if speechSynthesis is speaking
     });
 
     // Click the stop button
