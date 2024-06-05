@@ -24,21 +24,21 @@ const router = createHashRouter([
   { path: "/", element: <Navigate to="/account/sport" replace /> },
 
   {
-    path: "/signin",
+    path: "https://i0am0arunava.github.io/signin",
     element: <Signin />
-
+ 
   },
   {
-    path: "/changepass",
+    path: "https://i0am0arunava.github.io/changepass",
     element: <ChangePassword />
 
   },
   {
-    path: "/signup",
+    path: "https://i0am0arunava.github.io/signup",
     element: <Signup />
   },
   {
-    path: "/logout",
+    path: "https://i0am0arunava.github.io/logout",
     element: <Logout />
   },
   {
@@ -60,7 +60,7 @@ const router = createHashRouter([
       {
         path: "sport",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loadinggg...</div>}>
             <Sports />
           </Suspense>
         ),
