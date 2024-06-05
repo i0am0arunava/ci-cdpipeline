@@ -43,14 +43,17 @@ jobs:
           name: production-files
           path: ./dist
           
-      - name: Send Slack notification
+      - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
-        with:
-           slack-webhook: ${{ secrets.SLACK_URI }}
-           slack-channel: '#general'
-           slack-message: 'starting..'
         env:
-           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
+          SLACK_CHANNEL: general
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+         
+          SLACK_MESSAGE: 'Post Content :rocket:'
+          SLACK_TITLE: Post Title
+          SLACK_USERNAME: rtCamp
+          SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
+      
         if: always()
 
   deploy:
