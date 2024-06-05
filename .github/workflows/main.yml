@@ -35,7 +35,7 @@ jobs:
         run: npm run build
         env:
           VITE_API_ENDPOINT: ${{ secrets.VITE_API_ENDPOINT }}
-          SLACK_BOT_TOKEN:  ${{ secrets.SLACK_URI }}
+          SLACK_WEBHOOK:  ${{ secrets.SLACK_URI }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
@@ -43,12 +43,14 @@ jobs:
           name: production-files
           path: ./dist
           
-      - name: Notify slack
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_URI }}
-        uses: pullreminders/slack-action@master
+      - name: Send Slack notification
+        uses: rtCamp/action-slack-notify@v2
         with:
-          args: '{\"channel\":\"C1234567890\",\"text\":\"Hello world\"}'
+           status: ${{ job.status }}
+           mention: "here"
+           author_name: "GitHub Actions"
+        env:
+           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
 
   deploy:
     name: Deploy
