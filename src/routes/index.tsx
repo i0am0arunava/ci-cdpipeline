@@ -24,21 +24,21 @@ const router = createHashRouter([
   { path: "/", element: <Navigate to="/account/sport" replace /> },
 
   {
-    path: "ci-cdpipeline/signin",
+    path: "/signin",
     element: <Signin />
- 
+
   },
   {
-    path: "ci-cdpipeline/changepass",
+    path: "/changepass",
     element: <ChangePassword />
 
   },
   {
-    path: "ci-cdpipeline/signup",
+    path: "/signup",
     element: <Signup />
   },
   {
-    path: "ci-cdpipeline/logout",
+    path: "/logout",
     element: <Logout />
   },
   {
@@ -60,7 +60,7 @@ const router = createHashRouter([
       {
         path: "sport",
         element: (
-          <Suspense fallback={<div>Loadinggg...</div>}>
+          <Suspense fallback={<div>Loading...</div>}>
             <Sports />
           </Suspense>
         ),
