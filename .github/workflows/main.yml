@@ -49,7 +49,7 @@ jobs:
           SLACK_CHANNEL: general
           SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
          
-          SLACK_MESSAGE: 'Post Content :rocket:'
+          SLACK_MESSAGE: 'Error stack: ${{ error.stack }} ${{ error }} ${{ error.message }}'
           SLACK_TITLE: Post Title
           SLACK_USERNAME: rtCamp
           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
