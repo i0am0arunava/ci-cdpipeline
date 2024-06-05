@@ -65,13 +65,18 @@ jobs:
           force_orphan: true       # Force to initialize the branch as an orphan
           cname: example.com       # Optional: Add a custom domain if needed
           
-      - name: Slack Notification
-        uses: act10ns/slack@v1
-        with: 
-         status: ${{ job.status }}
-         channel: '#uiu'
-         message: Deployed  branch Successfully
-         if: always()    
+  send-slack-notification:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    steps:
+       - name: Send Slack notification
+         uses: rtCamp/action-slack-notify@v2
+         with:
+           status: ${{ job.status }}
+           mention: "here"
+           author_name: "GitHub Actions"
+         env:
+           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
 
 
       
