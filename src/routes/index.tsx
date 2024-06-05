@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import NewTask from "../pages/tasks/NewTask";
 import ProjectDetails from "../pages/project_details";
 import Sports from "../pages/sports";
@@ -20,7 +20,7 @@ import Read from "../pages/sports/read";
 import ChangePassword from "../pages/changepass"
 import { Suspense } from "react";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   { path: "/", element: <Navigate to="/account/sport" replace /> },
 
   {
