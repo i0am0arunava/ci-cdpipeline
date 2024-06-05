@@ -24,21 +24,21 @@ const router = createHashRouter([
   { path: "/", element: <Navigate to="/account/sport" replace /> },
 
   {
-    path: "https://i0am0arunava.github.io/signin",
+    path: "ci-cdpipeline/signin",
     element: <Signin />
  
   },
   {
-    path: "https://i0am0arunava.github.io/changepass",
+    path: "ci-cdpipeline/changepass",
     element: <ChangePassword />
 
   },
   {
-    path: "https://i0am0arunava.github.io/signup",
+    path: "ci-cdpipeline/signup",
     element: <Signup />
   },
   {
-    path: "https://i0am0arunava.github.io/logout",
+    path: "ci-cdpipeline/logout",
     element: <Logout />
   },
   {
