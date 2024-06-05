@@ -49,7 +49,7 @@ jobs:
            status: ${{ job.status }}
            mention: "here"
            author_name: "GitHub Actions"
-           message: Deployed  branch Successfully
+           text: "Deployed  branch Successfully"
         env:
            SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
 
