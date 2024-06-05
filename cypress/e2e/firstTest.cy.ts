@@ -1,6 +1,6 @@
 describe('Read Article Modal', () => {
   it('visits the website', () => {
-    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/');
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/spor/');
   });
 
   it('navigates to an article and opens the modal', () => {
