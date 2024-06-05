@@ -42,6 +42,16 @@ jobs:
         with:
           name: production-files
           path: ./dist
+          
+      - name: Send Slack notification
+        uses: rtCamp/action-slack-notify@v2
+        with:
+           status: ${{ job.status }}
+           mention: "here"
+           author_name: "GitHub Actions"
+           message: Deployed  branch Successfully
+        env:
+           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
 
   deploy:
     name: Deploy
