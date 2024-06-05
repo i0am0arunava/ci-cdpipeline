@@ -42,14 +42,6 @@ jobs:
           name: production-files
           path: ./dist
 
-    # New step to notify on failure
-      - name: Notify on failure
-        if: failure()
-        run: |
-        curl -X POST -H 'Content-type: application/json' \
-        --data '{"content":"Build failed! Check the details: ${{ github.run_url }}"}' \
-         ${{ secrets.DISCORD_WEBHOOK_URL }}
-
   deploy:
     name: Deploy
     needs: build
@@ -71,11 +63,3 @@ jobs:
           publish_branch: gh-pages # Specify the branch where GitHub Pages is hosted
           force_orphan: true       # Force to initialize the branch as an orphan
           cname: example.com       # Optional: Add a custom domain if needed
-
-    # New step to notify on failure
-    - name: Notify on failure
-      if: failure()
-      run: |
-        curl -X POST -H 'Content-type: application/json' \
-        --data '{"content":"Deploy failed! Check the details: ${{ github.run_url }}"}' \
-        ${{ secrets.DISCORD_WEBHOOK_URL }}
