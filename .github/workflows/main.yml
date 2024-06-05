@@ -43,12 +43,12 @@ jobs:
           name: production-files
           path: ./dist
           
-      - name: Slack Notification
+      - name: Slack Notification during build phase
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: general
           SLACK_MESSAGE: "Job status: ${{ job.status }}" # or a specific color like 'good' or '#ff00ff
-          SLACK_TITLE: hey @$SLACK_MSG_AUTHOR, sorry to let you know you broke the build
+          SLACK_TITLE: hey Arunava, sorry to let you know you broke the build
           SLACK_USERNAME: arunav pari
           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
       
@@ -78,14 +78,16 @@ jobs:
           cname: example.com       # Optional: Add a custom domain if needed
           
   
-      - name: Send Slack notification
+      - name: Slack Notification during deploy phase
         uses: rtCamp/action-slack-notify@v2
-        with:
-           status: ${{ job.status }}
-           mention: "here"
-           author_name: "GitHub Actions"
         env:
-           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
+          SLACK_CHANNEL: general
+          SLACK_MESSAGE: "Job status: ${{ job.status }}" # or a specific color like 'good' or '#ff00ff
+          SLACK_TITLE: hey Arunava, sorry to let you know you broke the deploy
+          SLACK_USERNAME: arunav pari
+          SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
+      
+        if: failure()
 
 
       
