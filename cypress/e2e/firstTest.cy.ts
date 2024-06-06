@@ -10,6 +10,13 @@ describe('Read Article Modal', () => {
     
   });
 
+  it('checks if the modal content is displayed correctly', () => {
+    cy.visit('https://i0am0arunava.github.io/ci-cdpipeline/#/account/sport/News/74'); // Replace '1' with a valid article ID
+   
+    cy.get('h2').should('contain.text', 'Table Tennis'); // Replace with actual sport name
+    cy.get('h3').should('contain.text', 'Excitement and Drama in Unforgettable Match'); // Replace with actual article title
+   // Replace with actual article content
+  });
 
  
   it('checks the text-to-speech functionality', () => {
@@ -27,7 +34,7 @@ describe('Read Article Modal', () => {
     // Click the stop button
     cy.get('#stop', { timeout: 10000 }).should('be.visible').click();
     cy.window().then((win) => {
-      expect(win.speechSynthesis.speaking).to.be.true; // Check if speechSynthesis has stopped speaking
+      expect(win.speechSynthesis.speaking).to.be.false; // Check if speechSynthesis has stopped speaking
     });
   });
 
