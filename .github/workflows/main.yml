@@ -42,6 +42,50 @@ jobs:
         with:
           name: production-files
           path: ./dist
+
+      - name: Install Docker
+        run: |
+          curl -fsSL https://get.docker.com -o get-docker.sh  # Download Docker installation script
+          sh get-docker.sh  # Run Docker installation script
+
+      # Step 4: Install frontend dependencies
+      - name: Install frontend dependencies
+        run: |
+          npm install  
+
+      # Step 5: Install backend dependencies
+      - name: Install backend dependencies
+        run: |
+          cd backend 
+          npm install  
+
+      # Step 6: Build Docker image for the frontend
+      - name: Build frontend Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/sportgitf-frontend:latest -f Dockerfile .  
+
+      # Step 7: Build Docker image for the backend
+      - name: Build backend Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/sportgitf-backend:latest -f backend/Dockerfile .  
+
+      # Step 8: Authenticate with Docker Hub
+      - name: Docker login
+        uses: docker/login-action@v2  # Use the docker/login-action to authenticate with Docker Hub
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}  # Use Docker username from secrets
+          password: ${{ secrets.DOCKER_PASSWORD }}  # Use Docker password from secrets
+
+      # Step 9: Push frontend Docker image to Docker Hub
+      - name: Push frontend Docker image
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/sportnewsapp-frontend:latest  
+
+      # Step 10: Push backend Docker image to Docker Hub
+      - name: Push backend Docker image
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/sportnewsapp-backend:latest  
+
           
       - name: Slack Notification during build phase
         uses: rtCamp/action-slack-notify@v2
