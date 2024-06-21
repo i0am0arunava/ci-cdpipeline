@@ -79,12 +79,12 @@ jobs:
       # Step 9: Push frontend Docker image to Docker Hub
       - name: Push frontend Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/sportnewsapp-frontend:latest  
+          docker push ${{ secrets.DOCKER_USERNAME }}/sportgitf-frontend:latest  
 
       # Step 10: Push backend Docker image to Docker Hub
       - name: Push backend Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/sportnewsapp-backend:latest  
+          docker push ${{ secrets.DOCKER_USERNAME }}/sportgitf-backend:latest  
 
           
       - name: Slack Notification during build phase
