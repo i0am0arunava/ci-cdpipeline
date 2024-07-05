@@ -103,7 +103,7 @@ jobs:
         env:
           SLACK_CHANNEL: general
           SLACK_MESSAGE: "Job status: ${{ job.status }}" # or a specific color like 'good' or '#ff00ff
-          SLACK_TITLE: hey Arunava, sorry to let you know you broke the build
+          SLACK_TITLE: you have successfully build ..
           SLACK_USERNAME: arunav pari
           SLACK_WEBHOOK: ${{ secrets.SLACK_URI }} 
       
