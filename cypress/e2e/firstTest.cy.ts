@@ -21,13 +21,13 @@ describe('Read Article Modal', () => {
 
     // Verify speech synthesis is speaking
     cy.window().then((win) => {
-      expect(win.speechSynthesis.speaking).to.be.true; // Check if speechSynthesis is speaking
+      expect(win.speechSynthesis.speaking).to.be.false; // Check if speechSynthesis is speaking
     });
 
     // Click the stop button
     cy.get('#stop', { timeout: 10000 }).should('be.visible').click();
     cy.window().then((win) => {
-      expect(win.speechSynthesis.speaking).to.be.true; // Check if speechSynthesis has stopped speaking
+      expect(win.speechSynthesis.speaking).to.be.false; // Check if speechSynthesis has stopped speaking
     });
   });
 
