@@ -207,7 +207,7 @@ const Sports = () => {
 
       <div className="sidebar">
         <div className="content-box3">
-          <div className="label">FAVOURATE SECTION</div>
+          <div className="label">FAVOURATE </div>
           <select
             id="sportSelect"
             className="appearance-none py-2 px-4 pr-8 rounded leading-tight focus:outline-none"
