@@ -63,5 +63,5 @@ To better understand our users and their needs, we've identified two personas:
 
 # Live App Link : [https://fascinating-gaufre-425a30.netlify.app/](https://fascinating-gaufre-425a30.netlify.app/)
 
-# Demo Video Link : [https://drive.google.com/file/d/1QdEMz-gwWVw72Cqy0e1jaDZ4ZMDtfl3X/view?usp=drive_link](https://drive.google.com/file/d/1QdEMz-gwWVw72Cqy0e1jaDZ4ZMDtfl3X/view?usp=drive_link)
+# Demo Video Link : [https://drive.google.com/file/d/1QdEMz-gwWVw72Cqy0e1jaDZ4ZMDtfl3X/view?usp=drive_link](https://drive.google.com/file/d/1sjVYabPnO3TuxIKcFCGvsxXiLdAwmP8V/view?usp=drive_link)
 
